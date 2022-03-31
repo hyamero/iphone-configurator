@@ -164,6 +164,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
               receiveShadow
               geometry={nodes.Apple_Logo_Logo_0.geometry}
               material={materials.Logo}
+              position-z={0.001}
             />
             <mesh
               castShadow
