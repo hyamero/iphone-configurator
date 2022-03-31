@@ -2,14 +2,20 @@ import { Suspense } from "react";
 import * as THREE from "three";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls, Environment, Html, Loader } from "@react-three/drei";
 
 import Iphone from "./components/Iphone";
 
 function App() {
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 15 }}>
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <Html>
+            <Loader />
+          </Html>
+        }
+      >
         <Environment preset="studio" background={false} />
         <Iphone />
       </Suspense>
