@@ -72,7 +72,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/iphone.gltf") as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      <group position={[0, 0, -0.01]} rotation={[-Math.PI / 2, 0, 0]}>
+      <group position={[0, -0.199, -0.01]} rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <group scale={100}>
             <mesh

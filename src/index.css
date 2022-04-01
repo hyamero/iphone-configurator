@@ -34,7 +34,7 @@ svg {
 }
 
 .text-gradient {
-  background: linear-gradient(30deg, #c850c0, #ffcc70);
+  background: linear-gradient(30deg, #1CB5E0, #000046);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
