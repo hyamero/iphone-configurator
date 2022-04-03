@@ -11,6 +11,7 @@ import {
 } from "@react-three/drei";
 
 import Iphone from "./components/Iphone";
+import { Lights } from "./components/three/Lights";
 
 function App() {
   return (
@@ -18,10 +19,8 @@ function App() {
       shadows
       camera={{ position: [-8, 3, 12], fov: 15, near: 1, far: 50 }}
     >
-      <ambientLight intensity={2} />
       <color attach="background" args={["#fff"]} />
-      <directionalLight position={[-10, 0, -15]} intensity={0.2} />
-      <directionalLight position={[10, 10, 10]} intensity={0.2} />
+      <Lights />
       <Suspense
         fallback={
           <Html>
