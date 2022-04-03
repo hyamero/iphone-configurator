@@ -19,18 +19,8 @@ body {
   font-family: 'Inter var', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  color: #ddd;
-  background: #12071f;
-}
-
-a {
-  pointer-events: all;
-  color: #ddd;
-  text-decoration: none;
-}
-
-svg {
-  fill: #ddd;
+  color: #000;
+  background: #ddd;
 }
 
 .text-gradient {
