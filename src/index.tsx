@@ -28,9 +28,9 @@ function Overlay() {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <App />
     <Overlay />
-  </React.StrictMode>,
+  </>,
   document.getElementById("root")
 );
