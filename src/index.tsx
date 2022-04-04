@@ -9,6 +9,7 @@ function Overlay() {
       <a
         href="https://github.com/hyamero"
         target="_blank"
+        rel="noreferrer"
         className="absolute bottom-10 left-10 text-[13px]"
       >
         developed by

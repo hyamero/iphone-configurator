@@ -1,8 +1,4 @@
-import React from "react";
-
-interface LightsProps {}
-
-export const Lights: React.FC<LightsProps> = ({}) => {
+export const Lights = () => {
   return (
     <>
       <ambientLight intensity={2} />
