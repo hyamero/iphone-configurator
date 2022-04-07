@@ -8,7 +8,7 @@ title: Apple iPhone 13 Pro Max
 */
 
 import * as THREE from "three";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { proxy, useSnapshot } from "valtio";
@@ -349,7 +349,7 @@ export const Picker = () => {
   return (
     <div style={{ display: snap.current ? "block" : "none" }}>
       <HexColorPicker
-        className="picker"
+        className="h-[90px] w-[90px]"
         color={snap.items[snap.current as keyof typeof snap.items]}
         onChange={(color) =>
           (state.items[snap.current as keyof typeof snap.items] = color)
