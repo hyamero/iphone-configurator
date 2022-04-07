@@ -83,10 +83,10 @@ interface StateTypes {
 const state: StateTypes = proxy({
   current: null,
   items: {
-    camera: "#00ff00",
-    body: "#ff0000",
-    logo: "#0000ff",
-    frame: "#ff0000",
+    camera: "#CBD8C9",
+    body: "#162415",
+    logo: "#CBD8C9",
+    frame: "#CBD8C9",
   },
 });
 
@@ -117,7 +117,6 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 material={materials.Bezel}
               />
               <mesh
-                castShadow
                 receiveShadow
                 geometry={nodes.Body_Body_0.geometry}
                 material={nodes.Body_Body_0.material}
@@ -131,26 +130,22 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 material={materials.Wallpaper}
               />
               <mesh
-                castShadow
                 receiveShadow
                 geometry={nodes.Body_Camera_Glass_0.geometry}
                 material={nodes.Body_Camera_Glass_0.material}
               />
               <mesh
-                castShadow
                 receiveShadow
                 geometry={nodes.Body_Lens_0.geometry}
                 material={nodes.Body_Lens_0.material}
               />
               <mesh
-                castShadow
                 receiveShadow
                 geometry={nodes.Body_Material_0.geometry}
                 material={materials.Material}
               />
 
               <mesh
-                castShadow
                 receiveShadow
                 geometry={nodes.Body001_Screen_Glass_0.geometry}
                 material={materials.Screen_Glass}
