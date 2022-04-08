@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -11,12 +11,29 @@ import {
 
 import Iphone, { Picker } from "./components/Iphone";
 import { Lights } from "./components/three/Lights";
+import { Buttons } from "./components/Buttons";
 
 function App() {
+  const [visible, setVisible] = useState<boolean>(false);
+
   return (
     <>
       <Canvas shadows>
         <Lights />
+        <Html
+          style={{
+            transition: "all 0.2s",
+            opacity: visible ? 0 : 1,
+            transform: `scale(${visible ? 0.5 : 1})`,
+          }}
+          distanceFactor={1.5}
+          position={[0, 0, 0.3]}
+          transform
+          occlude
+          onOcclude={setVisible as ((visible: boolean) => null) | undefined}
+        >
+          <Buttons />
+        </Html>
         <Suspense
           fallback={
             <Html>
@@ -37,15 +54,6 @@ function App() {
             </mesh>
           </group>
         </Suspense>
-        <OrbitControls
-          autoRotate
-          autoRotateSpeed={1}
-          makeDefault
-          minPolarAngle={Math.PI / 2.1}
-          maxPolarAngle={Math.PI / 2.1}
-          enableZoom={false}
-          enablePan={false}
-        />
         <Stats />
         <PerspectiveCamera makeDefault fov={55} position={[0, 0, 4]}>
           <spotLight
@@ -57,6 +65,14 @@ function App() {
             shadow-mapSize={[2048, 2048]}
           />
         </PerspectiveCamera>
+        <OrbitControls
+          autoRotateSpeed={1}
+          makeDefault
+          minPolarAngle={Math.PI / 2.1}
+          maxPolarAngle={Math.PI / 2.1}
+          enableZoom={false}
+          enablePan={false}
+        />
       </Canvas>
       <div className="absolute top-24 left-24">
         <Picker />

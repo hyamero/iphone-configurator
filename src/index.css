@@ -20,7 +20,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: #000;
-  background: #ddd;
+  background: #fff;
 }
 
 .text-gradient {
@@ -28,4 +28,29 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.color-btn:after {
+    border-radius: 50%;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 10%);
+    content: "";
+    display: block;
+    position: absolute;
+    height: 55px;
+    width: 55px;
+    cursor: pointer;
+    border: #fff 4px solid;
+}
+
+.color-btn.active:before {
+    transform: scale(1.1);
+    background: #478CDF;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 10%);
+    content: "";
+    display: block;
+    position: absolute;
+    height: 55px;
+    width: 55px;
+    cursor: pointer;
 }
