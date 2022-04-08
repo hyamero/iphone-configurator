@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export const Buttons: React.FC = ({}) => {
   const colors: string[] = ["green", "silver", "gold", "graphite", "blue"];
-  const [active, setActive] = useState<string>("");
+  const [active, setActive] = useState<string>("green");
 
   return (
     <ul className="flex flex-col space-y-20 relative bottom-20 right-72">

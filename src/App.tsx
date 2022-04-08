@@ -9,7 +9,7 @@ import {
   PerspectiveCamera,
 } from "@react-three/drei";
 
-import Iphone, { Picker } from "./components/Iphone";
+import Iphone from "./components/Iphone";
 import { Lights } from "./components/three/Lights";
 import { Buttons } from "./components/Buttons";
 
@@ -74,9 +74,6 @@ function App() {
           enablePan={false}
         />
       </Canvas>
-      <div className="absolute top-24 left-24">
-        <Picker />
-      </div>
     </>
   );
 }

@@ -10,8 +10,6 @@ title: Apple iPhone 13 Pro Max
 import * as THREE from "three";
 import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { proxy, useSnapshot } from "valtio";
-import { HexColorPicker } from "react-colorful";
 
 interface StateTypes {
   current: string | null | undefined;
@@ -23,7 +21,7 @@ interface StateTypes {
   };
 }
 
-const state: StateTypes = proxy({
+const state: StateTypes = {
   current: null,
   items: {
     camera: "#CBD8C9",
@@ -31,12 +29,11 @@ const state: StateTypes = proxy({
     logo: "#CBD8C9",
     frame: "#CBD8C9",
   },
-});
+};
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF("/iphone.gltf") as GLTFResult;
-  const snap = useSnapshot(state);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -63,7 +60,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Body_Body_0.geometry}
                 material={nodes.Body_Body_0.material}
-                material-color={snap.items.body}
+                material-color={state.items.body}
                 name="body"
               />
               <mesh
@@ -103,7 +100,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Apple_Logo_Logo_0.geometry}
                 material={materials.Logo}
-                material-color={snap.items.logo}
+                material-color={state.items.logo}
                 position-z={0.001}
                 name="logo"
               />
@@ -129,7 +126,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Camera_Camera_Frame001_0.geometry}
                 material={materials["Camera_Frame.001"]}
-                material-color={snap.items.camera}
+                material-color={state.items.camera}
                 name="camera"
               />
               <mesh
@@ -214,7 +211,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Frame_Frame_0.geometry}
                 material={nodes.Frame_Frame_0.material}
-                material-color={snap.items.frame}
+                material-color={state.items.frame}
               />
               <mesh
                 castShadow
@@ -249,19 +246,3 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 }
 
 useGLTF.preload("/iphone.gltf");
-
-export const Picker = () => {
-  const snap = useSnapshot(state);
-  return (
-    <div style={{ display: snap.current ? "block" : "none" }}>
-      <HexColorPicker
-        className="h-[90px] w-[90px]"
-        color={snap.items[snap.current as keyof typeof snap.items]}
-        onChange={(color) =>
-          (state.items[snap.current as keyof typeof snap.items] = color)
-        }
-      />
-      <h1>{snap.current}</h1>
-    </div>
-  );
-};
