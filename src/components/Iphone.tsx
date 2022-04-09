@@ -10,30 +10,14 @@ title: Apple iPhone 13 Pro Max
 import * as THREE from "three";
 import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-
-interface StateTypes {
-  current: string | null | undefined;
-  items: {
-    camera: string;
-    body: string;
-    logo: string;
-    frame: string;
-  };
-}
-
-const state: StateTypes = {
-  current: null,
-  items: {
-    camera: "#CBD8C9",
-    body: "#162415",
-    logo: "#CBD8C9",
-    frame: "#CBD8C9",
-  },
-};
+import { useStore } from "../hooks/useStore";
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF("/iphone.gltf") as GLTFResult;
+
+  const color = useStore((state) => state.current);
+  const setColor = useStore((state) => state.setColor);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -43,7 +27,10 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
             {/**
              * Body
              */}
-            <group name="body">
+            <group
+              name="body"
+              onClick={(e) => (e.stopPropagation(), setColor())}
+            >
               <mesh
                 castShadow
                 receiveShadow
@@ -60,7 +47,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Body_Body_0.geometry}
                 material={nodes.Body_Body_0.material}
-                material-color={state.items.body}
+                material-color={color.body}
                 name="body"
               />
               <mesh
@@ -100,7 +87,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Apple_Logo_Logo_0.geometry}
                 material={materials.Logo}
-                material-color={state.items.logo}
+                material-color={color.logo}
                 position-z={0.001}
                 name="logo"
               />
@@ -126,7 +113,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Camera_Camera_Frame001_0.geometry}
                 material={materials["Camera_Frame.001"]}
-                material-color={state.items.camera}
+                material-color={color.camera}
                 name="camera"
               />
               <mesh
@@ -211,7 +198,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
                 receiveShadow
                 geometry={nodes.Frame_Frame_0.geometry}
                 material={nodes.Frame_Frame_0.material}
-                material-color={state.items.frame}
+                material-color={color.frame}
               />
               <mesh
                 castShadow
