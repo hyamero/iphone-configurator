@@ -1,4 +1,4 @@
-@import url('https://rsms.me/inter/inter.css');
+@import url("https://rsms.me/inter/inter.css");
 
 @tailwind base;
 @tailwind components;
@@ -16,7 +16,7 @@ body,
 
 body {
   overscroll-behavior-y: none;
-  font-family: 'Inter var', sans-serif;
+  font-family: "Inter var", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: #000;
@@ -24,33 +24,33 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(30deg, #1CB5E0, #000046);
+  background: linear-gradient(30deg, #1cb5e0, #000046);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .color-btn:after {
-    border-radius: 50%;
-    box-shadow: inset 0 1px 1px rgb(0 0 0 / 10%);
-    content: "";
-    display: block;
-    position: absolute;
-    height: 55px;
-    width: 55px;
-    cursor: pointer;
-    border: #fff 4px solid;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 10%);
+  content: "";
+  display: block;
+  position: absolute;
+  height: 55px;
+  width: 55px;
+  cursor: pointer;
+  border: #fff 4px solid;
 }
 
 .color-btn.active:before {
-    transform: scale(1.1);
-    background: #478CDF;
-    border-radius: 50%;
-    box-shadow: inset 0 1px 1px rgb(0 0 0 / 10%);
-    content: "";
-    display: block;
-    position: absolute;
-    height: 55px;
-    width: 55px;
-    cursor: pointer;
+  transform: scale(1.1);
+  background: #478cdf;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 10%);
+  content: "";
+  display: block;
+  position: absolute;
+  height: 55px;
+  width: 55px;
+  cursor: pointer;
 }

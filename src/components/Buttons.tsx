@@ -8,7 +8,7 @@ export const Buttons: React.FC = () => {
   const [active, setActive] = useState<string>("green");
 
   return (
-    <ul className="flex space-x-20 top-96 md:flex-col md:space-y-20 relative md:top-[-10rem] md:space-x-0 md:right-72">
+    <ul className="relative top-96 flex space-x-20 md:top-[-10rem] md:right-72 md:flex-col md:space-y-20 md:space-x-0">
       {colors.map((color) => (
         <Button
           key={color.name}
