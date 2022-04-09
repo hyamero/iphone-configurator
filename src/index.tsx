@@ -5,7 +5,7 @@ import App from "./App";
 
 function Overlay() {
   return (
-    <div className="absolute top-0 left-0 pointer-events-none w-full h-full">
+    <div className="pointer-events-none absolute top-0 left-0 h-full w-full">
       <a
         href="https://github.com/hyamero"
         target="_blank"
@@ -16,7 +16,7 @@ function Overlay() {
         <br />
         Dale Bañares
       </a>
-      <div className="absolute -top-[10vw] right-0 -rotate-90 origin-bottom-right">
+      <div className="absolute -top-[10vw] right-0 origin-bottom-right -rotate-90">
         <h1 className="text-gradient m-0 p-0 text-[8vw] font-medium tracking-tighter">
           Oh. So. Pro.
         </h1>

@@ -1,29 +1,28 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
+  PerspectiveCamera,
   OrbitControls,
   Environment,
-  Html,
   Loader,
   Stats,
-  PerspectiveCamera,
+  Html,
 } from "@react-three/drei";
 
-import Iphone, { Picker } from "./components/Iphone";
+import Iphone from "./components/Iphone";
+import { Buttons } from "./components/Buttons";
 import { Lights } from "./components/three/Lights";
 
 function App() {
+  const [visible, setVisible] = useState<boolean>(false);
+
   return (
     <>
       <Canvas shadows>
-        <Lights />
-        <Suspense
-          fallback={
-            <Html>
-              <Loader />
-            </Html>
-          }
-        >
+        <PerspectiveCamera makeDefault fov={55} position={[0, 0, 4]}>
+          <Lights />
+        </PerspectiveCamera>
+        <Suspense fallback={null}>
           <Environment preset="city" background={false} />
           <group>
             <Iphone />
@@ -36,31 +35,31 @@ function App() {
               <shadowMaterial transparent color="black" opacity={0.4} />
             </mesh>
           </group>
+          <Html
+            style={{
+              transition: "all 0.2s",
+              opacity: visible ? 0 : 1,
+              transform: `scale(${visible ? 0.5 : 1})`,
+            }}
+            position={[0, 0, 0.3]}
+            distanceFactor={1.5}
+            transform
+            occlude
+            onOcclude={setVisible as ((visible: boolean) => null) | undefined}
+          >
+            <Buttons />
+          </Html>
         </Suspense>
+        <Stats />
         <OrbitControls
-          autoRotate
-          autoRotateSpeed={1}
           makeDefault
           minPolarAngle={Math.PI / 2.1}
           maxPolarAngle={Math.PI / 2.1}
           enableZoom={false}
           enablePan={false}
         />
-        <Stats />
-        <PerspectiveCamera makeDefault fov={55} position={[0, 0, 4]}>
-          <spotLight
-            position={[5, 10, 5]}
-            angle={0.15}
-            penumbra={1}
-            intensity={10}
-            castShadow
-            shadow-mapSize={[2048, 2048]}
-          />
-        </PerspectiveCamera>
       </Canvas>
-      <div className="absolute top-24 left-24">
-        <Picker />
-      </div>
+      <Loader />
     </>
   );
 }
