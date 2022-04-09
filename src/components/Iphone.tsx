@@ -17,7 +17,6 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/iphone.gltf") as GLTFResult;
 
   const color = useStore((state) => state.current);
-  const setColor = useStore((state) => state.setColor);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -27,10 +26,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
             {/**
              * Body
              */}
-            <group
-              name="body"
-              onClick={(e) => (e.stopPropagation(), setColor())}
-            >
+            <group name="body">
               <mesh
                 castShadow
                 receiveShadow

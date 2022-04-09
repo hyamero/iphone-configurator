@@ -1,32 +1,21 @@
 import { SetState } from 'zustand';
 import create from 'zustand'
+import { ColorTypes } from './colors';
 
-interface ColorTypes {
-  current: {
-    camera: string;
-    body: string;
-    logo: string;
-    frame: string;
-  };
-  // current?: string;
+export interface ColorSlice {
+  current: ColorTypes;
   setColor: () => void;
 }
 
-const green = {
-  camera: "#CBD8C9",
-  body: "#162415",
-  logo: "#CBD8C9",
-  frame: "#CBD8C9",
-}
-
-export const useStore = create((set: SetState<ColorTypes>) => ({
+export const useStore = create((set: SetState<ColorSlice>) => ({
   current: {
-    camera:null,
-    body: null,
-    logo: null,
-    frame: null,
+    name: 'green',
+    camera: "#CBD8C9",
+    body: "#162415",
+    logo: "#CBD8C9",
+    frame: "#CBD8C9",
   },
-  setColor: () => {
-    set(() => ({ current: green }))
+  setColor: (color: any) => {
+    set(() => ({ current: color }) as ColorSlice )
   }
 }))
