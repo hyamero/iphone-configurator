@@ -3,7 +3,7 @@ import { colors } from "../hooks/colors";
 import { useStore } from "../hooks/useStore";
 import { ColorTypes } from "../hooks/colors";
 
-export const Buttons: React.FC = ({}) => {
+export const Buttons: React.FC = () => {
   const setColor = useStore((state) => state.setColor);
   const [active, setActive] = useState<string>("green");
 
