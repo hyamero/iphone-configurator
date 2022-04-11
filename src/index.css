@@ -20,15 +20,15 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: #000;
-  background: #fff;
+  background: #d4ebd1;
 }
 
-.text-gradient {
-  background: linear-gradient(30deg, #1cb5e0, #000046);
+/* .text-gradient {
+  background: linear-gradient(30deg, #dce9ec, #353535);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 .color-btn:after {
   border-radius: 50%;

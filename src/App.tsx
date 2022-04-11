@@ -5,7 +5,6 @@ import {
   OrbitControls,
   Environment,
   Loader,
-  Stats,
   Html,
 } from "@react-three/drei";
 
@@ -42,6 +41,7 @@ function App() {
               transform: `scale(${visible ? 0.5 : 1})`,
             }}
             position={[0, 0, 0.3]}
+            rotation={[0, 0.4, 0]}
             distanceFactor={1.5}
             transform
             occlude
@@ -50,7 +50,6 @@ function App() {
             <Buttons />
           </Html>
         </Suspense>
-        <Stats />
         <OrbitControls
           makeDefault
           minPolarAngle={Math.PI / 2.1}
