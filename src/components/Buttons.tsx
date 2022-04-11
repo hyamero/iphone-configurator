@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { gsap } from "gsap";
+
 import { colors } from "../hooks/colors";
 import { useStore } from "../hooks/useStore";
 import { ColorTypes } from "../hooks/colors";
+
+const handleBg = (color: string) => {
+  gsap.to("body", { duration: 0.5, backgroundColor: color });
+};
 
 export const Buttons: React.FC = () => {
   const setColor = useStore((state) => state.setColor);
@@ -55,6 +61,7 @@ const Button: React.FC<ButtonProps> = ({
       }`}
       onClick={() => {
         setActive(color);
+        handleBg(colorObj.bg);
         setColor(colorObj);
       }}
     />
