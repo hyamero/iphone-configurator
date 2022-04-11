@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -17,12 +16,12 @@ function Overlay() {
         Dale Bañares
       </a>
       <div className="absolute -top-[10vw] right-0 origin-bottom-right -rotate-90">
-        <h1 className="text-gradient m-0 p-0 text-[8vw] font-medium tracking-tighter">
+        <h1 className="text-gradient m-0 p-0 text-[8vw] font-medium tracking-tighter text-black/25">
           Oh. So. Pro.
         </h1>
       </div>
       <div className="absolute top-10 left-10 text-[13px]">
-        iPhone Configurator —
+        iPhone 13 Configurator —
       </div>
     </div>
   );
