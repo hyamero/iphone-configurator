@@ -1,4 +1,6 @@
-type GLTFResult = GLTF & {
+import { GLTF } from '@react-three/drei'
+
+export type GLTFResult = GLTF & {
   nodes: {
     Body_Mic_0: THREE.Mesh;
     Body_Bezel_0: THREE.Mesh;
