@@ -11,12 +11,14 @@ import {
 import Iphone from "./components/Iphone";
 import { Buttons } from "./components/Buttons";
 import { Lights } from "./components/three/Lights";
+import { Warn } from "./components/Warn";
 
 function App() {
   const [visible, setVisible] = useState<boolean>(false);
 
   return (
     <>
+      <Warn />
       <Canvas shadows>
         <PerspectiveCamera makeDefault fov={55} position={[0, 0, 4]}>
           <Lights />
