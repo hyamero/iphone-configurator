@@ -6,7 +6,7 @@ export const Overlay = () => {
         href="https://github.com/hyamero"
         target="_blank"
         rel="noreferrer"
-        className="absolute bottom-10 left-10 text-[13px]"
+        className="absolute bottom-3 left-3 text-[13px] md:bottom-10 md:left-10"
       >
         developed by
         <br />
@@ -18,7 +18,7 @@ export const Overlay = () => {
             Oh. So. Pro.
           </h1>
         </div>
-        <div className="absolute top-10 left-10 text-[13px]">
+        <div className="absolute top-5 left-5 text-[13px] md:top-10 md:left-10">
           iPhone 13 Configurator —
         </div>
       </div>
