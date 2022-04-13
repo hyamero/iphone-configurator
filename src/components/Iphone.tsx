@@ -8,13 +8,13 @@ title: Apple iPhone 13 Pro Max
 */
 
 import * as THREE from "three";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useStore } from "../hooks/useStore";
 import { GLTFResult } from "../model";
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
-  const group = useRef<React.ReactNode>();
+  const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF("/iphone.gltf") as GLTFResult;
 
   const color = useStore((state) => state.current);
