@@ -14,7 +14,7 @@ import { useStore } from "../hooks/useStore";
 import { GLTFResult } from "../model";
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
-  const group = useRef<THREE.Group>();
+  const group = useRef<THREE.Group>(null);
   const { nodes, materials } = useGLTF("/iphone.gltf") as GLTFResult;
 
   const color = useStore((state) => state.current);
