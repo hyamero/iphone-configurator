@@ -1,4 +1,5 @@
 import { Suspense, useState } from "react";
+import Iphone from "./components/Iphone";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -8,7 +9,6 @@ import {
   Html,
 } from "@react-three/drei";
 
-import Iphone from "./components/Iphone";
 import { Buttons } from "./components/Buttons";
 import { Lights } from "./components/three/Lights";
 
